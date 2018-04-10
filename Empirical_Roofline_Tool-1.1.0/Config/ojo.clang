@@ -1,11 +1,11 @@
-# Cavium ThunderX2 b0 stepping
-# clang via armllvm/18.2
+# AMD EPYC 7351 16-Core Processor
+# clang vi llvm/6.0
 
-ERT_RESULTS Results.fluffy.01
+ERT_RESULTS Results.ojo.clang
 
 ERT_SPEC_GBYTES_DRAM    171.0
 # see slides
-ERT_SPEC_GFLOPS         563.0
+ERT_SPEC_GFLOPS         307.0
 
 ERT_DRIVER  driver1
 ERT_KERNEL  kernel1
@@ -25,9 +25,9 @@ ERT_LDFLAGS
 ERT_LDLIBS
 
 #ERT_RUN     export KMP_AFFINITY=scatter; export OMP_NUM_THREADS=ERT_OPENMP_THREADS; ERT_CODE
-ERT_RUN     export OMP_PLACES=spread; export OMP_NUM_THREADS=ERT_OPENMP_THREADS; numactl -C 0-15 ERT_CODE
+ERT_RUN     export OMP_PLACES=spread; export OMP_NUM_THREADS=ERT_OPENMP_THREADS; numactl -C0-15 -m 0 ERT_CODE
 
-ERT_OPENMP_THREADS 1,2,4,8,16
+ERT_OPENMP_THREADS 16
 
 ERT_NUM_EXPERIMENTS 5
 
