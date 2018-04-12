@@ -128,6 +128,9 @@ int main(int argc, char *argv[]) {
     int bytes_per_elem;
     int mem_accesses_per_elem;
 
+    //jgw// nsize = max size bytes split across processes, then converted to
+    //jgw//         number of doubles.
+    //jgw// n increased by 10% each time
     n = ERT_WORKING_SET_MIN;
     while (n <= nsize) { // working set - nsize
       uint64_t ntrials = nsize / n;
